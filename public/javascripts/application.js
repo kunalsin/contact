@@ -83,7 +83,7 @@ $(document).ready(function(){
 
 	//client sending information to the server below based on button clicks etc...
 
-	var socket = io.connect();
+	var socket = io.connect("http://nodejs328final-kunalsin.rhcloud.com:8000");
 
 	$('#button3').on('click', function() {
 		var user_name = $("#f input")[0].value;
