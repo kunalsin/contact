@@ -1,0 +1,90 @@
+<html>
+
+  <head>
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="javascripts/application.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/dist/sweetalert.css">
+
+    <title>Contact - The Word Game</title>
+  
+  </head>
+
+   <div id="nav">
+      <nav class="navbar navbar-default navbar-fixed-top" id="nav">
+        <h1><center><b>&raquo; You Are the Word Master! &laquo;</b></center></h1>
+      </nav>
+   </div>
+
+  <div class="container">
+
+    <div id="playerName"></div>
+
+    <br><br>
+
+    <div class="row">
+    	<form id='form-wordmaster'>
+    		<fieldset class="form-group">
+  		    <label for="status1"><h3><b>Enter A Word For Players To Guess</b></h3></label>
+  		    <input type="text" class="form-control" id="status1" placeholder="ex: Statue...">
+  	   </fieldset>
+    	</form>
+    </div>
+
+    <hr>
+      
+    <div class="row">
+    
+      <div class="col-md-6">
+        <button type="button" class="btn btn-primary btn-lg pull-left" id="sendword" value="Click To Save The Word"><span>Click To Save The Word</span></button>
+      </div>
+
+      <div class="col-md-6">
+        <div id="waitingforplayerword"></div>
+      </div>
+
+    </div>
+
+    <br><br>
+
+    <div class="row">
+
+      <div id="playerhint"></div>
+
+        <div id="wordmaster-guess-div">
+
+            <form id='wordmaster-guess'>
+                <fieldset class="form-group">
+                    <label for="wordmaster-guess-word"><h3><b>Guess The Word</b></h3></label>
+                    <input type="text" class="form-control" id="wordmaster-guess-word" placeholder="Guess The word...">
+               </fieldset>
+            </form>
+
+            <hr>
+
+            <div class="row">
+              <button type="button" class="btn btn-primary btn-lg pull-left" id="guesswordmasterword" value="Click To Save The Word"><span>Click To Guess</span></button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <br>
+
+    <div class="row">
+      <div id="contact"></div>
+    </div>
+
+  </div>
+
+</html>
+
+
+

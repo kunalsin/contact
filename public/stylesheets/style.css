@@ -1,0 +1,57 @@
+@font-face {
+    font-family: "Copperplate Gothic Light";
+}
+
+body {
+	padding-top: 50px;
+  padding-bottom: 50px;
+  font-family: "Copperplate Gothic Light";
+  font-size: 20px;
+  color: black;
+  margin-top: 25px;
+  /*background-image: url("/images/intro-bg.jpg"); 
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;*/
+}
+
+nav {
+  color: black;
+}
+
+.modal-header {
+  color: orange;
+}
+
+.modal-body {
+  color: black;
+}
+
+.boxed {
+	background-color: #6666ff;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1%;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.div-align {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+footer {
+  background: #fff;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+footer p {
+  margin: 0;
+  padding: 50px 0;
+}

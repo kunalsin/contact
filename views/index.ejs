@@ -1,0 +1,95 @@
+<html>
+  <head>
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="javascripts/application.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <script src="dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/dist/sweetalert.css">
+
+
+    <title>Contact - The Word Game</title>
+
+  </head>
+
+  <body>
+
+  <div class="container">
+
+    <br><br>
+
+    <div id="nav">
+      <nav class="navbar navbar-default navbar-fixed-top" id="nav">
+        <h1><center><b>&raquo; Welcome To Contact ! - test your intellect &laquo;</b></center></h1>
+      </nav>
+    </div>
+
+    <center><h3>There are currently <span id="numPlayers">no</span> players in the game.</h3></center>
+    <h3 class="boxed" style="width:526px">
+      <center>Welcome Player: <span id="welcome"></span></center>
+      <br>
+      <center>...Wating For Other Players To Connect...</center></h3>
+
+    <br><br><br><br><br><br>
+
+    <div class="row">
+    	<form id='f'>
+    		<fieldset class="form-group">
+  		    <label for="status1"><h3><b>Enter Your Name</b></h3></label>
+  		    <input type="text" class="form-control" id="status1" placeholder="ex: Xzavier...">
+  	   </fieldset>
+    	</form>
+    </div>
+
+    <hr>
+
+    <div class="row" class="div-align">
+
+      <div class="col-md-6">
+        <button type="button" class="btn btn-primary btn-lg pull-left" data-toggle="modal" data-target="#myModal">View Instructions</button>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel"><b>How-To-Play : : Contact</b></h4>
+            </div>
+
+            <div class="modal-body">
+                <p>One person (word-master) thinks of a word and all other players must work together to guess what that word is through giving clues to one another.
+                <hr>The game begins when the word-master gives out the first letter of their word. Everyone else must now secretly come up with their own word that starts with the given letter and announce a hint pertaining to that word.The goal of this hint is to stump the word-master but hopefully get someone else to know what is being referred to. 
+                <hr>When the hint is announced and another player thinks they know what word is being referenced, they click "contact". 
+                <hr>If the words match, the word-master will reveal the next letter in the word. If the words do not match or the word-master successfully guesses the correct word, the clue becomes void and the game continues</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+          <button type="button" class="btn btn-primary btn-lg pull-right" id="button3" value="Click To Ready Up">Click to Ready Up</button>
+          <div id="responseArea3"></div>
+      </div>
+
+      <span id="ready"></span>
+
+    </div>
+
+    
+    <br><br><br>
+
+  </div>
+
+</body>
+
+</html>
+
+
+
