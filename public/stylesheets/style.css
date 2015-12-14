@@ -3,16 +3,12 @@
 }
 
 body {
-	padding-top: 50px;
-  padding-bottom: 50px;
+	padding-top: 5%;
+  padding-bottom: 5%;
   font-family: "Copperplate Gothic Light";
   font-size: 20px;
   color: black;
-  margin-top: 25px;
-  /*background-image: url("/images/intro-bg.jpg"); 
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;*/
+  margin-top: 1%;
 }
 
 nav {

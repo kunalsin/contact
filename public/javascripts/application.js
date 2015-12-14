@@ -2,7 +2,7 @@ $(document).ready(function(){
 	console.log("Document is ready to go!");
 
 	//behaviors interactions
-	$('#b1').on('click',putting);
+	$('#button3').on('click',putting);
 	$('#b2').on('click',getting);
 	$('#b3').on('click',posting);
 	$('#b4').on('click',deleting);
@@ -13,24 +13,19 @@ $(document).ready(function(){
 
 	function putting(){
 		var user_name = $("#f input")[0].value;
-		var user_email = $("#f input")[1].value;
-		var user_password = $("#f input")[2].value;
 		console.log("putting");
 		$.ajax({
 			url: './contact',
 			type: 'PUT',
-			data: {name: user_name, email: user_email, password: user_password},
+			data: {name: user_name},
 			success:function(result){
-				// alert("Putting User: " + user_name + " Email: " + user_email + " Password: " + user_password);
-				alert(result)
+				console.log(user_name+"has been added to DB");
 			}
 		});
 	}
 
 	function getting(){
 		var user_name = $("#f input")[0].value;
-		// var user_email = $("#f input")[1].value;
-		// var user_password = $("#f input")[2].value;
 		console.log("getting");
 		var obj = {name:user_name};
 		var url = "/contact?" + $.param(obj);
@@ -91,36 +86,13 @@ $(document).ready(function(){
 	        swal("Oops...","Enter Your Name To Begin The Game!","error");
 	        return false;
 	    };
+	    localStorage.setItem("username", user_name);
 	    socket.emit('clicked', {success: true, user_name: user_name});
 		$('#f input[type=text]').attr("disabled",true);
 		swal("Awesome!","You're Ready To Go","success");
 	    var message = $('<span><h3>...Waiting On Other Players...</h3></span>');
 	    $(this).after(message);
 	    $(this).remove();
-  	});
-
-	$('#edit').on('click', function () {
-		var user_name = $("#f input")[0].value;
-		var sid = socket.id;
-	    socket.emit('wordmaster', {id: user_name, socketid:sid});
-	    alert('You Are Now The Wordmaster')
-
-	    var $this = $(this);
-	    if($this.attr('editing') != '1') {
-	        $this.text('Send').attr('editing', 1);
-	        $(document).find('.editable').each(function() {
-	            var input = $('<input class="editing" />').val($(this).text());
-	            $(this).replaceWith(input);
-	        });
-	    }
-	    else {
-	        $this.text('Send').removeAttr('editing');
-	        $(document).find('input.editing').each(function() {
-	            var div = $('<div class="editable" />').text($(this).val());
-	            $(this).replaceWith(div);
-	        });
-	    }
-
   	});
 
   	$('#sendword').on('click',function() {
@@ -173,8 +145,6 @@ $(document).ready(function(){
 	    $(this).after(message);
 	    $(this).remove();
   	});
-
-
 
   	//client retrieving information from the server below
 
