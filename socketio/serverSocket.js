@@ -26,10 +26,9 @@ exports.init = function(io) {
 			count++;
 			console.log("currentPlayers",currentPlayers);
 			console.log("count",count);
-	  		if (currentPlayers == count) { //if currPlayer == data.num then all players have clicked ready
+	  		if ((currentPlayers == count) && (currentPlayers > 2)) { //if currPlayer == data.num then all players have clicked ready
 	  			var rand = allClients[Math.floor(Math.random()*allClients.length)].id;	//randomly choose a client id to assign master
 	  			io.sockets.emit('ready', "Player(s) are ready to go!") 	//emit event to EVERYONE saying players are ready to go
-	  			
 	  			for(var i=0;i<allClients.length;i++){
 	  				socid = allClients[i].id;
 	  				if(rand == allClients[i].id) {
@@ -41,6 +40,10 @@ exports.init = function(io) {
 		  				io.to(socid).emit('redirect',{type: "player", user_name:data.user_name});
 		  			}	//else render normal page
 	  			}	
+	  		}
+	  		else if ((currentPlayers == count) && (currentPlayers <= 2)) {
+	  			io.sockets.emit('ready', "At Least 3 Players Needed To Begin The Game!")
+	  			console.log("FAIL");
 	  		}
 		});
 

@@ -2,7 +2,7 @@ $(document).ready(function(){
 	console.log("Document is ready to go!");
 
 	//behaviors interactions
-	$('#button3').on('click',putting);
+	$('#b3').on('click',putting);
 	$('#b2').on('click',getting);
 	$('#b3').on('click',posting);
 	$('#b4').on('click',deleting);
@@ -86,9 +86,9 @@ $(document).ready(function(){
 	        swal("Oops...","Enter Your Name To Begin The Game!","error");
 	        return false;
 	    };
-	    localStorage.setItem("username", user_name);
+	    localStorage.setItem('username', JSON.stringify(user_name));
 	    socket.emit('clicked', {success: true, user_name: user_name});
-		$('#f input[type=text]').attr("disabled",true);
+		$('#f input[type=text]').attr("dataisabled",true);
 		swal("Awesome!","You're Ready To Go","success");
 	    var message = $('<span><h3>...Waiting On Other Players...</h3></span>');
 	    $(this).after(message);
@@ -163,16 +163,15 @@ $(document).ready(function(){
 	socket.on('redirect', function (data) {
 		if(data.type == "master") {
 			console.log(data.user_name);
+			$("#playerName").text(localStorage.getItem('username'));
 			var url = "/wordmaster";
 			window.location.href = url;
-			$("#playerName").text(data.user_name);
 		}
 		else if(data.type == "player") {
 			var url = "/game";
-			window.location.href = url;
-			$("#playerName").text(data.user_name);
-			console.log("body has been hid");
 			$("#bodytext").hide();
+			$("#playerName").text(localStorage.getItem('username'));
+			window.location.href = url;
 		}
 		else if(data.type == "gameOver") {
 			var url = "/gameOver";
